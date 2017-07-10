@@ -27,7 +27,7 @@ public class Util {
 	 * @param access
 	 * @return
 	 * 
-	 * 		The method opens an xlsb file and reading
+	 * 		The method opens an xlsb file for reading
 	 */
 	public static XSSFEventBasedExcelExtractor openAnXLSBFile(String fileName, PackageAccess access) {
 		File file = null;
@@ -37,7 +37,6 @@ public class Util {
 		file = Paths.get(fileName).toFile();
 		try {
 			pkg = OPCPackage.open(file, access);
-			ZipSecureFile.setMaxTextSize(110485766);
 			evt = new XSSFBEventBasedExcelExtractor(pkg);
 		} catch (XmlException | OpenXML4JException | IOException e) {
 			e.printStackTrace();
